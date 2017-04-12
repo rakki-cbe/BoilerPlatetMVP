@@ -1,6 +1,6 @@
-package demo.compassites.mvpdemo.network;
+package demo.compassites.mvpdemo.common.network;
 
-import demo.compassites.mvpdemo.model.Products;
+import demo.compassites.mvpdemo.feature.Products.model.Products;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -10,22 +10,22 @@ import retrofit2.http.GET;
  * Created by radhakrishanan on 7/4/17.
  */
 
-public class NetWorkBuilder {
-    private static final NetWorkBuilder ourInstance = new NetWorkBuilder();
+public class NetWorkHelper {
+    private static final NetWorkHelper ourInstance = new NetWorkHelper();
     private static Retrofit retrofit = null;
-    private String ENDPOINT = "https://api.myjson.com/";
+    private String END_POINT = "https://api.myjson.com/";
 
-    private NetWorkBuilder() {
+    private NetWorkHelper() {
     }
 
-    public static NetWorkBuilder getInstance() {
+    public static NetWorkHelper getInstance() {
         return ourInstance;
     }
 
     public Retrofit getClient() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl(ENDPOINT)
+                    .baseUrl(END_POINT)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

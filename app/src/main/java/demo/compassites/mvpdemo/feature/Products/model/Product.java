@@ -1,5 +1,5 @@
 
-package demo.compassites.mvpdemo.model;
+package demo.compassites.mvpdemo.feature.Products.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
