@@ -1,0 +1,26 @@
+package demo.compassites.mvpdemo.presenter;
+
+import demo.compassites.mvpdemo.model.Product;
+import demo.compassites.mvpdemo.view.interfaces.ProductDetailsView;
+
+/**
+ * Created by radhakrishanan on 7/4/17.
+ */
+
+public class ProductDetailPresenter extends BasePresenter<ProductDetailsView> {
+
+    private Product currentProduct;
+
+    public ProductDetailPresenter(Product currentProduct) {
+        this.currentProduct = currentProduct;
+    }
+
+    public void setData() {
+
+
+        getBaseView().setPrice(currentProduct.getProductPrice());
+        getBaseView().setTitle(currentProduct.getProductTitle());
+        //getBaseView().setImageSrc(currentProduct.getImageDefault());
+
+    }
+}

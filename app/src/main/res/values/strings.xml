@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MVPdemo</string>
+    <string name="title_activity_product_detail_page">ProductDetailPage</string>
+</resources>
