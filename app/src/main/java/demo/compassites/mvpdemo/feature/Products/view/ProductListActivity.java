@@ -11,6 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import demo.compassites.mvpdemo.R;
 import demo.compassites.mvpdemo.common.base.BaseActivity;
+import demo.compassites.mvpdemo.common.bus.ProductBus;
 import demo.compassites.mvpdemo.feature.Products.model.Product;
 import demo.compassites.mvpdemo.feature.Products.presenter.ProductListPresenter;
 import demo.compassites.mvpdemo.feature.Products.view.contract.ItemView;
@@ -74,6 +75,8 @@ public class ProductListActivity extends BaseActivity implements ListView, ItemV
 
     @Override
     public void onItemClicked(int potion) {
-        startActivity(ProductDetailActivity.getIntent(this, adapter.getItem(potion)));
+        startActivity(ProductDetailActivity.getIntent(this));
+        /*We used RXJava as Bus to send data*/
+        ProductBus.getInstance().send(adapter.getItem(potion));
     }
 }
