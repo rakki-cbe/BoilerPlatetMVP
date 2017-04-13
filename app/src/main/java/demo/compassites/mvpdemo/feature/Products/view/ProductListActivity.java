@@ -13,8 +13,8 @@ import demo.compassites.mvpdemo.R;
 import demo.compassites.mvpdemo.common.base.BaseActivity;
 import demo.compassites.mvpdemo.feature.Products.model.Product;
 import demo.compassites.mvpdemo.feature.Products.presenter.ProductListPresenter;
-import demo.compassites.mvpdemo.feature.Products.view.interfaces.ItemView;
-import demo.compassites.mvpdemo.feature.Products.view.interfaces.ListView;
+import demo.compassites.mvpdemo.feature.Products.view.contract.ItemView;
+import demo.compassites.mvpdemo.feature.Products.view.contract.ListView;
 
 
 public class ProductListActivity extends BaseActivity implements ListView, ItemView {

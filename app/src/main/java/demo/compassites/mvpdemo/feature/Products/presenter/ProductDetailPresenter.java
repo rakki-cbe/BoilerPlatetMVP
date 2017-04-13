@@ -2,7 +2,7 @@ package demo.compassites.mvpdemo.feature.Products.presenter;
 
 import demo.compassites.mvpdemo.common.base.BasePresenter;
 import demo.compassites.mvpdemo.feature.Products.model.Product;
-import demo.compassites.mvpdemo.feature.Products.view.interfaces.ProductDetailsView;
+import demo.compassites.mvpdemo.feature.Products.view.contract.ProductDetailsView;
 
 
 /**

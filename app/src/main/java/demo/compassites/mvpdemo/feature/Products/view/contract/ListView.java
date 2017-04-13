@@ -1,4 +1,4 @@
-package demo.compassites.mvpdemo.feature.Products.view.interfaces;
+package demo.compassites.mvpdemo.feature.Products.view.contract;
 
 import java.util.List;
 

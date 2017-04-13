@@ -11,7 +11,7 @@ import demo.compassites.mvpdemo.R;
 import demo.compassites.mvpdemo.common.base.BaseActivity;
 import demo.compassites.mvpdemo.feature.Products.model.Product;
 import demo.compassites.mvpdemo.feature.Products.presenter.ProductDetailPresenter;
-import demo.compassites.mvpdemo.feature.Products.view.interfaces.ProductDetailsView;
+import demo.compassites.mvpdemo.feature.Products.view.contract.ProductDetailsView;
 
 
 public class ProductDetailActivity extends BaseActivity implements ProductDetailsView {

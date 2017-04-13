@@ -7,7 +7,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import demo.compassites.mvpdemo.R;
-import demo.compassites.mvpdemo.feature.Products.view.interfaces.ItemView;
+import demo.compassites.mvpdemo.feature.Products.view.contract.ItemView;
 
 /**
  * Created by radhakrishanan on 7/4/17.
@@ -15,7 +15,7 @@ import demo.compassites.mvpdemo.feature.Products.view.interfaces.ItemView;
 
 class ProductItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     @BindView(R.id.IP_name)
-    private TextView tv_name;
+    TextView tv_name;
     private ItemView callBack;
     private int position;
 

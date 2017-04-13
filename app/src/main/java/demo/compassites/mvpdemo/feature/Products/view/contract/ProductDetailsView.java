@@ -1,4 +1,4 @@
-package demo.compassites.mvpdemo.feature.Products.view.interfaces;
+package demo.compassites.mvpdemo.feature.Products.view.contract;
 
 import demo.compassites.mvpdemo.common.base.BaseView;
 

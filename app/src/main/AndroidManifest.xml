@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.ListActivity"
+            android:name=".feature.Products.view.ProductListActivity"
             android:label="products">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,12 +21,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.ProductDetailActivity"
+            android:name=".feature.Products.view.ProductDetailActivity"
             android:label="@string/title_activity_product_detail_page"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="demo.compassites.mvpdemo.view.ListActivity" />
+
         </activity>
     </application>
 

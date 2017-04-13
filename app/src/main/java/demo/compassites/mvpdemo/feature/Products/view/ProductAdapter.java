@@ -10,7 +10,7 @@ import java.util.List;
 
 import demo.compassites.mvpdemo.R;
 import demo.compassites.mvpdemo.feature.Products.model.Product;
-import demo.compassites.mvpdemo.feature.Products.view.interfaces.ItemView;
+import demo.compassites.mvpdemo.feature.Products.view.contract.ItemView;
 
 
 /**
