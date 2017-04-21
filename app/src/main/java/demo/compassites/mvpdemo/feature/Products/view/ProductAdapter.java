@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import demo.compassites.mvpdemo.R;
-import demo.compassites.mvpdemo.feature.Products.model.Product;
+import demo.compassites.mvpdemo.feature.Products.model.database.Product;
 import demo.compassites.mvpdemo.feature.Products.view.contract.ItemView;
 
 
@@ -21,8 +23,13 @@ class ProductAdapter extends RecyclerView.Adapter<ProductItemHolder> {
     private List<Product> list = new ArrayList<>();
     private ItemView itemView;
 
-    ProductAdapter(ItemView view) {
-        itemView = view;
+    @Inject
+    ProductAdapter() {
+
+    }
+
+    void setItemView(ItemView itemView) {
+        this.itemView = itemView;
     }
 
     @Override

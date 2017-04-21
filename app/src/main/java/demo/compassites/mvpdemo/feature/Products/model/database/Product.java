@@ -1,73 +1,34 @@
+package demo.compassites.mvpdemo.feature.Products.model.database;
 
-package demo.compassites.mvpdemo.feature.Products.model;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class Product implements Serializable {
-
-    @SerializedName("productDefault")
-    @Expose
-    private Integer productDefault;
-    @SerializedName("imageDefault")
-    @Expose
-    private Integer imageDefault;
-    @SerializedName("childViewType")
-    @Expose
-    private Integer childViewType;
-    @SerializedName("productCode")
-    @Expose
+@Table(name = "Product")
+public class Product extends Model implements Serializable {
+    @Column(name = "code")//,unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     private String productCode;
-    @SerializedName("productPrice")
-    @Expose
+    @Column(name = "price")
     private String productPrice;
-    @SerializedName("productActualPrice")
-    @Expose
+    @Column(name = "acual_price")
     private String productActualPrice;
-    @SerializedName("productDiscount")
-    @Expose
+    @Column(name = "discount")
     private String productDiscount;
-    @SerializedName("productTitle")
-    @Expose
+    @Column(name = "title")
     private String productTitle;
-    @SerializedName("productMainCategory")
-    @Expose
+    @Column(name = "main_category")
     private String productMainCategory;
-    @SerializedName("productSubCategory")
-    @Expose
+    @Column(name = "sub_Category")
     private String productSubCategory;
-    @SerializedName("productCategory")
-    @Expose
+    @Column(name = "category")
     private String productCategory;
-    @SerializedName("productUrl")
-    @Expose
     private List<String> productUrl = null;
 
-    public Integer getProductDefault() {
-        return productDefault;
-    }
-
-    public void setProductDefault(Integer productDefault) {
-        this.productDefault = productDefault;
-    }
-
-    public Integer getImageDefault() {
-        return imageDefault;
-    }
-
-    public void setImageDefault(Integer imageDefault) {
-        this.imageDefault = imageDefault;
-    }
-
-    public Integer getChildViewType() {
-        return childViewType;
-    }
-
-    public void setChildViewType(Integer childViewType) {
-        this.childViewType = childViewType;
+    public Product() {
+        super();
     }
 
     public String getProductCode() {

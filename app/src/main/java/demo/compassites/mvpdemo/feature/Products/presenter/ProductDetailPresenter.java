@@ -1,8 +1,16 @@
 package demo.compassites.mvpdemo.feature.Products.presenter;
 
+import android.util.Log;
+
 import demo.compassites.mvpdemo.common.base.BasePresenter;
-import demo.compassites.mvpdemo.feature.Products.model.Product;
+import demo.compassites.mvpdemo.common.base.CustomException;
+import demo.compassites.mvpdemo.common.bus.ProductBus;
+import demo.compassites.mvpdemo.feature.Products.model.database.Product;
 import demo.compassites.mvpdemo.feature.Products.view.contract.ProductDetailsView;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -11,17 +19,50 @@ import demo.compassites.mvpdemo.feature.Products.view.contract.ProductDetailsVie
 
 public class ProductDetailPresenter extends BasePresenter<ProductDetailsView> {
 
-    private Product currentProduct;
+    private Product product;
 
-    public ProductDetailPresenter(Product currentProduct) {
-        this.currentProduct = currentProduct;
+    public ProductDetailPresenter() {
+
     }
 
-    public void setData() {
+    public void getData() {
+        ProductBus.getInstance().toObservable().ofType(Product.class)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Product>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.d("Succes", "Subscribed");
+            }
 
+            @Override
+            public void onNext(Product value) {
+                product = value;
+                Log.d("Values", "Updated" + product.getProductPrice());
+                applyData();
 
-        getBaseView().setPrice(currentProduct.getProductPrice());
-        getBaseView().setTitle(currentProduct.getProductTitle());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d("Succes", "error ");
+            }
+
+            @Override
+            public void onComplete() {
+                Log.d("Succes", "completed");
+            }
+        });
+
+    }
+
+    private void applyData() {
+
+        if (product != null) {
+            getBaseView().setPrice(product.getProductPrice());
+            getBaseView().setTitle(product.getProductTitle());
+        } else {
+            throw new CustomException.dataNotAttached();
+        }
         //getBaseView().setImageSrc(currentProduct.getImageDefault());
 
     }

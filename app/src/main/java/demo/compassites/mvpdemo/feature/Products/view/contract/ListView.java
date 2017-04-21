@@ -3,7 +3,7 @@ package demo.compassites.mvpdemo.feature.Products.view.contract;
 import java.util.List;
 
 import demo.compassites.mvpdemo.common.base.BaseView;
-import demo.compassites.mvpdemo.feature.Products.model.Product;
+import demo.compassites.mvpdemo.feature.Products.model.database.Product;
 
 /**
  * Created by radhakrishanan on 7/4/17.

@@ -7,35 +7,51 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import demo.compassites.mvpdemo.R;
+import demo.compassites.mvpdemo.common.MyApplication;
 import demo.compassites.mvpdemo.common.base.BaseActivity;
 import demo.compassites.mvpdemo.common.bus.ProductBus;
-import demo.compassites.mvpdemo.feature.Products.model.Product;
+import demo.compassites.mvpdemo.feature.Products.injection.PerActivity;
+import demo.compassites.mvpdemo.feature.Products.injection.component.DaggerPresenterComponent;
+import demo.compassites.mvpdemo.feature.Products.injection.component.PresenterComponent;
+import demo.compassites.mvpdemo.feature.Products.injection.module.ProgressDialogModule;
+import demo.compassites.mvpdemo.feature.Products.model.database.Product;
 import demo.compassites.mvpdemo.feature.Products.presenter.ProductListPresenter;
 import demo.compassites.mvpdemo.feature.Products.view.contract.ItemView;
 import demo.compassites.mvpdemo.feature.Products.view.contract.ListView;
 
-
+@PerActivity
 public class ProductListActivity extends BaseActivity implements ListView, ItemView {
     @BindView(R.id.list_rv_products)
     RecyclerView list;
+    @Inject
     ProgressDialog progress;
+    @Inject
     ProductAdapter adapter;
-    private ProductListPresenter presenter;
+    @Inject
+    ProductListPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        PresenterComponent component = DaggerPresenterComponent
+                .builder()
+                .progressDialogModule(new ProgressDialogModule(this))
+                .applicationComponent(((MyApplication) getApplicationContext()).getComponent())
+                .build();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         ButterKnife.bind(this);
-        presenter = new ProductListPresenter(this);
+        component.inject(this);
+
+
         presenter.attachView(this);
-        adapter = new ProductAdapter(this);
+        adapter.setItemView(this);
         list.setAdapter(adapter);
         list.setLayoutManager(new LinearLayoutManager(this));
-
         presenter.getProductsList();
 
     }
@@ -48,7 +64,6 @@ public class ProductListActivity extends BaseActivity implements ListView, ItemV
 
     @Override
     public void showProgress() {
-        progress = new ProgressDialog(this);
         progress.setMessage("");
         progress.setIndeterminate(true);
         progress.show();
@@ -75,8 +90,9 @@ public class ProductListActivity extends BaseActivity implements ListView, ItemV
 
     @Override
     public void onItemClicked(int potion) {
-        startActivity(ProductDetailActivity.getIntent(this));
         /*We used RXJava as Bus to send data*/
         ProductBus.getInstance().send(adapter.getItem(potion));
+        startActivity(ProductDetailActivity.getIntent(this));
+
     }
 }

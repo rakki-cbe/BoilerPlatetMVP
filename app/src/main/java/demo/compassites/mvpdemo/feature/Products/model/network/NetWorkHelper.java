@@ -1,9 +1,10 @@
-package demo.compassites.mvpdemo.common.network;
+package demo.compassites.mvpdemo.feature.Products.model.network;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import demo.compassites.mvpdemo.feature.Products.model.Products;
 import io.reactivex.Observable;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
@@ -27,11 +28,14 @@ public class NetWorkHelper {
 
     public Retrofit getClient() {
         if (retrofit == null) {
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
             retrofit = new Retrofit.Builder()
                     .baseUrl(END_POINT)
-                    .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    //.addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(client)
                     .build();
         }
         return retrofit;
@@ -40,7 +44,7 @@ public class NetWorkHelper {
     public interface NetworkInterface {
 
         @GET("bins/njwbv")
-        Observable<Products> getProductss();
+        Observable<ProductList> getProducts();
 
     }
 }

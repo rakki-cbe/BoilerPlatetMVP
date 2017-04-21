@@ -5,12 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".common.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".feature.Products.view.ProductListActivity"
             android:label="products">
@@ -26,6 +27,16 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="Product" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="4" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="demo.compassites.mvpdemo.feature.Products.model.database.Product" />
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@ import demo.compassites.mvpdemo.feature.Products.view.contract.ListView;
 import static org.junit.Assert.assertNotEquals;
 
 /**
- * Products local unit test, which will execute on the development machine (host).
+ * ProductList local unit test, which will execute on the development machine (host).
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
@@ -24,19 +24,10 @@ public class ExampleUnitTest {
 
     @Before
     public void setUp() {
-        list = new ProductListPresenter(listView);
+//        list = new ProductListPresenter(listView);
         assertNotEquals(list, null);
     }
     @Test
     public void addition_isCorrect() throws Exception {
-       /* final List<Product> products=new ArrayList<>();
-           when(list.getProductsList()).thenAnswer(
-                new Answer() {
-                    public Object answer(InvocationOnMock invocation) {
-                        ListView callback =
-                                (ListView) invocation.getArguments()[1];
-                        callback.setProductList(products);
-                    }
-                });*/
     }
 }
