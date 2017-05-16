@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import demo.compassites.mvpdemo.feature.Products.presenter.ProductListPresenter;
-import demo.compassites.mvpdemo.feature.Products.view.contract.ListView;
+import demo.compassites.mvpdemo.feature.products.presenter.ProductListPresenter;
+import demo.compassites.mvpdemo.feature.products.view.contract.ListView;
 
 import static org.junit.Assert.assertNotEquals;
 

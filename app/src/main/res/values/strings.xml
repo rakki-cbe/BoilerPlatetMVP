@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">MVPdemo</string>
+    <string name="app_name">MVP_demo</string>
     <string name="title_activity_product_detail_page">ProductDetailPage</string>
+    <string name="image">Image</string>
 </resources>

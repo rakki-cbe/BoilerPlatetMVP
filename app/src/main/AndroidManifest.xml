@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".feature.Products.view.ProductListActivity"
+            android:name=".feature.products.view.ProductListActivity"
             android:label="products">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".feature.Products.view.ProductDetailActivity"
+            android:name=".feature.products.view.ProductDetailActivity"
             android:label="@string/title_activity_product_detail_page"
             android:theme="@style/AppTheme.NoActionBar">
 

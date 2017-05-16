@@ -1,14 +1,14 @@
 package demo.compassites.mvpdemo.common;
 
-import demo.compassites.mvpdemo.feature.Products.injection.component.ApplicationComponent;
-import demo.compassites.mvpdemo.feature.Products.injection.component.DaggerApplicationComponent;
+import demo.compassites.mvpdemo.feature.products.injection.component.ApplicationComponent;
+import demo.compassites.mvpdemo.feature.products.injection.component.DaggerApplicationComponent;
 
 /**
  * Created by radhakrishnan on 18/4/17.
  */
 public class MyApplication extends com.activeandroid.app.Application {
 
-    ApplicationComponent mComponent;
+    private ApplicationComponent mComponent;
 
     @Override
     public void onCreate() {

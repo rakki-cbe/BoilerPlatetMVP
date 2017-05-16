@@ -23,8 +23,8 @@ android {
 
 dependencies {
     final RETROFIT_VERSION = '2.1.0'
-    final BUTTERKNIFE_VERSION = '8.4.0'
-    final SUPORT_DESING_VERSION = '22.+'
+    final BUTTER_KNIFE_VERSION = '8.4.0'
+    final SUPPORT_DESING_VERSION = '22.+'
     final DAGGER_VERSION = '2.10'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -32,20 +32,20 @@ dependencies {
     })
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
-    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+    compile "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
-    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
 
 
-    compile "com.android.support:appcompat-v7:$SUPORT_DESING_VERSION"
+    compile "com.android.support:appcompat-v7:$SUPPORT_DESING_VERSION"
     compile "com.android.support.constraint:constraint-layout:1.0.2"
-    compile "com.android.support:recyclerview-v7:$SUPORT_DESING_VERSION"
-    compile "com.android.support:design:$SUPORT_DESING_VERSION"
+    compile "com.android.support:recyclerview-v7:$SUPPORT_DESING_VERSION"
+    compile "com.android.support:design:$SUPPORT_DESING_VERSION"
     /**Rx java**/
     compile 'io.reactivex.rxjava2:rxjava:2.0.2'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
-    /**Dependency injuction **/
+    /**Dependency injection **/
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
     // compile "com.google.dagger:dagger-android-support:$DAGGER_VERSION"
     annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"

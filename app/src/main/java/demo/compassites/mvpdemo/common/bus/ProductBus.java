@@ -1,6 +1,6 @@
 package demo.compassites.mvpdemo.common.bus;
 
-import demo.compassites.mvpdemo.feature.Products.model.database.Product;
+import demo.compassites.mvpdemo.feature.products.model.database.Product;
 import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;
 
